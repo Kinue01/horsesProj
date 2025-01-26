@@ -75,13 +75,12 @@ create table tb_horse
 	horse_year date not null,
 	horse_gender_id smallint not null,
 	horse_breed_id smallint not null,
-	horse_trainer_fio varchar(50) not null,
-	horse_owner_id int not null,
+	horse_trainer_fio varchar(150) not null,
+	horse_owner_fio varchar(150) not null,
 	horse_speed numeric(5, 1),
 	horse_run_fail int not null,
 	foreign key (horse_gender_id) references tb_horse_gender (gender_id),
-	foreign key (horse_breed_id) references tb_horse_breed (breed_id),
-	foreign key (horse_owner_id) references tb_jokey (jokey_id)
+	foreign key (horse_breed_id) references tb_horse_breed (breed_id)
 );
 
 create table tb_competition
@@ -115,10 +114,12 @@ create table tb_ride_competitors
 (
 	ride_id int not null,
 	jokey_id int not null,
+	horse_id int not null,
 	jokey_color varchar(50) not null,
 	horse_row smallint not null,
 	foreign key (ride_id) references tb_ride (ride_id),
-	foreign key (jokey_id) references tb_jokey (jokey_id)
+	foreign key (jokey_id) references tb_jokey (jokey_id),
+	foreign key (horse_id) references tb_horse (horse_id)
 );
 
 create table tb_competition_rides
@@ -128,4 +129,3 @@ create table tb_competition_rides
 	foreign key (compet_id) references tb_competition (compet_id),
 	foreign key (ride_id) references tb_ride (ride_id)
 );
-

@@ -17,7 +17,7 @@ public partial class TbHorse
 
     public string HorseTrainerFio { get; set; } = null!;
 
-    public int HorseOwnerId { get; set; }
+    public string HorseOwnerFio { get; set; } = null!;
 
     public decimal? HorseSpeed { get; set; }
 
@@ -26,6 +26,4 @@ public partial class TbHorse
     public virtual TbHorseBreed HorseBreed { get; set; } = null!;
 
     public virtual TbHorseGender HorseGender { get; set; } = null!;
-
-    public virtual TbJokey HorseOwner { get; set; } = null!;
 }

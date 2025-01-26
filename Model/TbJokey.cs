@@ -16,6 +16,4 @@ public partial class TbJokey
     public string JokeyUserLogin { get; set; } = null!;
 
     public virtual TbUser JokeyUserLoginNavigation { get; set; } = null!;
-
-    public virtual ICollection<TbHorse> TbHorses { get; set; } = new List<TbHorse>();
 }

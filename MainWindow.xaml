@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:horsesProj"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Конные состязания" 
+        Height="450" 
+        Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1.3*" />
+        </Grid.ColumnDefinitions>
 
+        <Image Grid.Column="0" Source="Image/entry.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" />
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Content="Начать работу" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click" />
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Информация о работе с программой" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_1" />
+                <Button Grid.Column="1" Content="Завершение работы" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_2" />
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

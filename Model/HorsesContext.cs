@@ -98,13 +98,15 @@ public partial class HorsesContext : DbContext
             entity.Property(e => e.HorseName)
                 .HasMaxLength(50)
                 .HasColumnName("horse_name");
-            entity.Property(e => e.HorseOwnerId).HasColumnName("horse_owner_id");
+            entity.Property(e => e.HorseOwnerFio)
+                .HasMaxLength(150)
+                .HasColumnName("horse_owner_fio");
             entity.Property(e => e.HorseRunFail).HasColumnName("horse_run_fail");
             entity.Property(e => e.HorseSpeed)
                 .HasPrecision(5, 1)
                 .HasColumnName("horse_speed");
             entity.Property(e => e.HorseTrainerFio)
-                .HasMaxLength(50)
+                .HasMaxLength(150)
                 .HasColumnName("horse_trainer_fio");
             entity.Property(e => e.HorseYear).HasColumnName("horse_year");
 
@@ -117,11 +119,6 @@ public partial class HorsesContext : DbContext
                 .HasForeignKey(d => d.HorseGenderId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("tb_horse_horse_gender_id_fkey");
-
-            entity.HasOne(d => d.HorseOwner).WithMany(p => p.TbHorses)
-                .HasForeignKey(d => d.HorseOwnerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("tb_horse_horse_owner_id_fkey");
         });
 
         modelBuilder.Entity<TbHorseBreed>(entity =>
@@ -284,12 +281,18 @@ public partial class HorsesContext : DbContext
                 .HasNoKey()
                 .ToTable("tb_ride_competitors");
 
+            entity.Property(e => e.HorseId).HasColumnName("horse_id");
             entity.Property(e => e.HorseRow).HasColumnName("horse_row");
             entity.Property(e => e.JokeyColor)
                 .HasMaxLength(50)
                 .HasColumnName("jokey_color");
             entity.Property(e => e.JokeyId).HasColumnName("jokey_id");
             entity.Property(e => e.RideId).HasColumnName("ride_id");
+
+            entity.HasOne(d => d.Horse).WithMany()
+                .HasForeignKey(d => d.HorseId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("tb_ride_competitors_horse_id_fkey");
 
             entity.HasOne(d => d.Jokey).WithMany()
                 .HasForeignKey(d => d.JokeyId)
