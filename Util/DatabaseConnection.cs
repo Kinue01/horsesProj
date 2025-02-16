@@ -1,9 +1,9 @@
-﻿using horsesProj.Model;
+﻿using horsesProj.ModelV2;
 
 namespace horsesProj.Util
 {
     internal static class DatabaseConnection
     {
-        public static readonly HorsesContext context = new();
+        public static HorsesV2Context ContextV2 { get; } = new();
     }
 }

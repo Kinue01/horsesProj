@@ -1,0 +1,19 @@
+﻿<Window x:Class="horsesProj.Windows.Judge.ReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:horsesProj.Windows.Judge"
+        mc:Ignorable="d"
+        Title="ReportWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ComboBox x:Name="compets" VerticalAlignment="Center" HorizontalAlignment="Center" DisplayMemberPath="CompetName" />
+
+        <Button Grid.Row="1" Content="Создать отчёт" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click" />
+    </Grid>
+</Window>

@@ -1,5 +1,4 @@
 ﻿using horsesProj.ModelV2;
-using horsesProj.UIModel;
 using horsesProj.Util;
 using Microsoft.EntityFrameworkCore;
 using System.Windows;
@@ -7,11 +6,11 @@ using System.Windows;
 namespace horsesProj.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для JokeysWindow.xaml
+    /// Логика взаимодействия для RideResultsWindow.xaml
     /// </summary>
-    public partial class JokeysWindow : Window
+    public partial class RideResultsWindow : Window
     {
-        public JokeysWindow()
+        public RideResultsWindow()
         {
             InitializeComponent();
         }
@@ -30,11 +29,7 @@ namespace horsesProj.Windows
         private void rides_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             TbRide ride = rides.SelectedItem as TbRide;
-            grid.ItemsSource = DatabaseConnection.ContextV2.TbRideCompetitors.Include(r => r.Competitor).Include(c => c.Competitor.CompetitorHorse).Include(c => c.Competitor.CompetitorJockey).Where(r => r.RideId == ride.RideId).Include(r => r.Competitor.CompetitorHorse.HorseGender).Include(r => r.Competitor.CompetitorHorse.HorseBreed).Select(r => new Competitior
-            {
-                Jokey = r.Competitor.CompetitorJockey,
-                Horse = r.Competitor.CompetitorHorse,
-            }).ToList();
+            grid.ItemsSource = DatabaseConnection.ContextV2.TbRideCompetitors.Where(r => r.RideId == ride.RideId).Include(r => r.Ride).Include(r => r.Competitor).Include(r => r.Competitor.CompetitorJockey).Include(c => c.Competitor.CompetitorHorse).ToList();
         }
     }
 }

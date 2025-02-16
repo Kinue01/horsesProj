@@ -1,4 +1,4 @@
-﻿using horsesProj.Model;
+﻿using horsesProj.ModelV2;
 
 namespace horsesProj.UIModel
 {

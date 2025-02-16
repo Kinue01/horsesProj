@@ -14,7 +14,7 @@
             <ColumnDefinition Width="6*" />
         </Grid.ColumnDefinitions>
 
-        <Button VerticalAlignment="Top" HorizontalAlignment="Right" Content="Назад" Margin="0,0,77,0" Click="Button_Click" />
+        <Button VerticalAlignment="Top" Content="Назад" Click="Button_Click" />
 
         <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <UniformGrid Rows="2" Columns="2" Margin="10">

@@ -11,9 +11,11 @@
   <ItemGroup>
     <None Remove="Image\entry.jpg" />
     <None Remove="Image\fan.jpg" />
+    <None Remove="Image\judge.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="iTextSharp" Version="5.5.13.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -30,6 +32,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\fan.jpg" />
+    <Resource Include="Image\judge.jpg" />
   </ItemGroup>
 
 </Project>

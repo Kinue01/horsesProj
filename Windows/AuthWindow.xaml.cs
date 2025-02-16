@@ -1,5 +1,7 @@
-﻿using horsesProj.Model;
+﻿using horsesProj.ModelV2;
 using horsesProj.Util;
+using horsesProj.Windows.Jockey;
+using horsesProj.Windows.Judge;
 using System.Windows;
 
 namespace horsesProj.Windows
@@ -20,12 +22,25 @@ namespace horsesProj.Windows
         // Вход
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            TbUser user = DatabaseConnection.context.TbUsers.Find(login.Text);
-            if (user != null && user.UserPassword.Equals(password.Password))
+            TbUser user = DatabaseConnection.ContextV2.TbUsers.Find(login.Text);
+
+            if (user != null && user.UserPassword.Equals(password.Password)) CurrentUser.User = user;
+            else
             {
-                //Вход в формы жокея и судьи
+                MessageBox.Show("Нет такого пользователя или неправильный пароль");
+                return;
             }
-            else MessageBox.Show("Нет такого пользователя или неправильный пароль");
+
+            if (CurrentUser.User.UserRoleId == 1) {
+                CurrentUser.Jokey = DatabaseConnection.ContextV2.TbJockeys.Where(u => u.JokeyUserLogin == user.UserLogin).FirstOrDefault();
+                JockeyWindow jokeysWindow = new();
+                jokeysWindow.ShowDialog();
+            }
+            else {
+                CurrentUser.Judge = DatabaseConnection.ContextV2.TbJudges.Where(u => u.JudgeUserLogin == user.UserLogin).FirstOrDefault();
+                JudgeWindow judgeWindow = new();
+                judgeWindow.ShowDialog();
+            }
         }
 
         // Болельщик

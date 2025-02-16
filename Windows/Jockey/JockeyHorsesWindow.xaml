@@ -1,0 +1,21 @@
+﻿<Window x:Class="horsesProj.Windows.Jockey.JockeyHorsesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:horsesProj.Windows.Jockey"
+        mc:Ignorable="d"
+        Title="JockeyHorsesWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <UniformGrid>
+        <StackPanel>
+            <TextBlock Text="Кличка" />
+            <TextBox x:Name="name" />
+        </StackPanel>
+        <StackPanel>
+            <TextBlock Text="ФИО тренера" />
+            <TextBox x:Name="trainer" />
+        </StackPanel>
+        <Button Content="ОК" VerticalAlignment="Center" Click="Button_Click" />
+        <Button Content="Отмена" VerticalAlignment="Center" Click="Button_Click_1" />
+    </UniformGrid>
+</Window>

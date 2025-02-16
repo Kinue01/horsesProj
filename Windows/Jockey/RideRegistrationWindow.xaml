@@ -1,0 +1,30 @@
+﻿<Window x:Class="horsesProj.Windows.Jockey.RideRegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:horsesProj.Windows.Jockey"
+        mc:Ignorable="d"
+        Title="RideRegistrationWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <UniformGrid Rows="3">
+        <StackPanel>
+            <TextBlock Text="Состязание" />
+            <ComboBox x:Name="compets" SelectionChanged="compets_SelectionChanged" />
+        </StackPanel>
+        <StackPanel>
+            <TextBlock Text="Заезды" />
+            <ComboBox x:Name="rides" />
+            <Button Content="Добавить" Click="Button_Click" />
+            <ListView x:Name="viewRides" />
+        </StackPanel>
+        <StackPanel>
+            <TextBlock Text="Лошадь" />
+            <ComboBox x:Name="horses" DisplayMemberPath="HorseName" />
+        </StackPanel>
+        <StackPanel>
+            <TextBlock Text="Цвет формы" />
+            <TextBox x:Name="color" />
+        </StackPanel>
+        <Button Content="ОК" Click="Button_Click_1" />
+    </UniformGrid>
+</Window>

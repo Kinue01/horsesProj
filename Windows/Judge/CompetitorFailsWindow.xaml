@@ -1,0 +1,36 @@
+﻿<Window x:Class="horsesProj.Windows.Judge.CompetitorFailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:horsesProj.Windows.Judge"
+        mc:Ignorable="d"
+        Title="CompetitorFailsWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="7*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Состязание" />
+                <ComboBox x:Name="compets" SelectionChanged="compets_SelectionChanged" />
+            </StackPanel>
+          
+        </StackPanel>
+
+        <UniformGrid Grid.Row="1">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Участник" />
+                <ComboBox x:Name="competitors" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Нарушение" />
+                <ComboBox x:Name="offences" />
+            </StackPanel>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Дисквалификация" Click="Button_Click" />
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Добавить" Click="Button_Click_1" />
+        </UniformGrid>
+    </Grid>
+</Window>
